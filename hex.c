@@ -41,7 +41,7 @@ int hex(char numero[8]){
 }
 
 int main(){
-    char numero[8] = "FE02";
+    char numero[8] = "FE02"; //numero de entrada
 
     printf("%i\n",hex(numero));
     return 0;
