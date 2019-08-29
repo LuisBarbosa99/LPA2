@@ -11,7 +11,7 @@ int binario(char numero[8]){
         int expoente = tamanho - 1;
         int fator = numero[i] - '0';
         
-        produto = fator * pow(2.00,expoente);
+        produto = fator * pow(2,expoente);
         soma = produto + soma;
         tamanho--;
     }

@@ -2,8 +2,7 @@
 #include <math.h>
 #include <string.h>
 
-int main(){
-    char numero[8] = "FE02";
+int hex(char numero[8]){
     int tamanho = strlen(numero),soma = 0,produto;
 
     for(int i = 0;i<strlen(numero);i++){
@@ -38,7 +37,12 @@ int main(){
         soma = produto + soma;
         tamanho--;
     }
+    return soma;
+}
 
-    printf("%i\n",soma);
+int main(){
+    char numero[8] = "FE02";
+
+    printf("%i\n",hex(numero));
     return 0;
 }
