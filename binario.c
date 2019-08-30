@@ -4,17 +4,15 @@
 
 
 int binario(char numero[8]){
-    int soma = 0, tamanho = strlen(numero),produto;
-    
+    int resultado = 0, produto,expoente;
+    expoente = strlen(numero) - 1;
     for(int i = 0;i<strlen(numero);i++){
-        int expoente = tamanho - 1;
         int valor = numero[i] - '0';
-        
-        produto = fator * pow(2,expoente);
-        soma = produto + soma;
-        tamanho--;
+        produto = valor * pow(2,expoente);
+        resultado +=produto;
+        expoente--;
     }
-    return soma;
+    return resultado;
 }
 int main(){
     char numero[8] = "1101"; //numero de entrada

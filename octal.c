@@ -1,32 +1,53 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-double octal(char numero[8]){
-    double tamanho = strlen(numero),expoente,resultado = 0, valor, produto;
-    for(int i = 0;i<strlen(numero);i++){
-        if(numero[i]==','){
-            i++;
-            expoente = -1;
+
+double octal(char numero[8])
+{
+    double expoente,resultado = 0, valor, produto;
+    
+    char *ret = strstr(numero,",");
+   
+    if(ret!=NULL){
+        int point = ret[1] - '0';
+        expoente = point -1;
+
+        for(int i = 0;i<strlen(numero);i++)
+        {
+            if(numero[i]==',') //se o caractere atual é uma vírgula
+            { 
+                i++;
+                expoente = -1;
+                valor = numero[i] - '0';
+                produto = valor * pow(8,expoente);
+                resultado += produto;
+                expoente--;
+            }else
+            {
+                valor = numero[i] - '0';
+                produto = valor * pow(8,expoente);
+                resultado +=produto;
+                expoente--;
+            }
+        }
+    }else
+    {   
+        expoente = strlen(numero) - 1;
+        for(int i = 0;i<strlen(numero);i++)
+        {            
             valor = numero[i] - '0';
             produto = valor * pow(8,expoente);
-            resultado = produto + resultado;
-            printf("i = %i %f\n",i,resultado);
+            resultado +=produto;
             expoente--;
-        }else{
-            expoente = tamanho - 1;
-            valor = numero[i] - '0';
-            produto = valor * pow(8,expoente);
-            resultado = produto + resultado;
-            tamanho--;
-            printf("i = %i %f\n",i,resultado);
         }
     }
     return resultado;
 }
 
-int main(){
+int main()
+{
 
-    char numero[8] = "41,2";
+    char numero[8] = "15";
     
     printf("%f\n",octal(numero));
 

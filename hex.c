@@ -3,13 +3,14 @@
 #include <string.h>
 
 int hex(char numero[8]){
-    int tamanho = strlen(numero),soma = 0,produto;
-
+    int expoente,resultado = 0,produto;
+    expoente = strlen(numero) - 1;
+   
     for(int i = 0;i<strlen(numero);i++){
         int valor = 0;
-        int expoente = tamanho - 1;
 
         switch(numero[i]){
+            
             case 'A':
                 valor = 10;
                 break;
@@ -34,10 +35,10 @@ int hex(char numero[8]){
         }
 
         produto = valor * pow(16,expoente);
-        soma = produto + soma;
-        tamanho--;
+        resultado += produto;
+        expoente--;
     }
-    return soma;
+    return resultado;
 }
 
 int main(){
