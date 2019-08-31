@@ -14,4 +14,9 @@ Intuitivamente, os programas binario.c, octal.c e hex.c fazem essas conversões,
 
 Já o programa conversorDec.c faz todas as conversões, a partir da entrada de dados feita por argumentos de main() na linha de comando;
 
+- quando compilar o conversorDec.c, colocar assim:
 
+```
+$gcc -o conversorDec conversorDec.c -lm
+$./conversorDec (numero) (base) 
+```
