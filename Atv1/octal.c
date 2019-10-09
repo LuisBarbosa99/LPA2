@@ -44,12 +44,11 @@ double octal(char numero[8])
     return resultado;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    char numero[8] = "41,2";
 
-    char numero[8] = "15";
-    
     printf("%f\n",octal(numero));
-
+    
     return 0;
 }
