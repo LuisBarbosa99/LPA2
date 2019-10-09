@@ -1,43 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
-void conjuncao (char entrada[],int index){
+void conjuncao (char operator[],int indexSymbol){
     char boolean;
     
-    for(int i = 0; i < index;i++){
-        printf("%c\n",entrada[i]);
-    }
+    printf("chegou aqui\n");
     //return boolean;
 }
 
 
 int main(int argc, char *argv[]){
     
-    int index;
-    char entrada[10],symbol;
+    int indexSymbol = 0, number[4];
+    char operator[4],symbol,comp;
 
-    for (int i = 1;i < argc;i++){ // Para guardar os valores de entrada no array de char
-        strcpy(&entrada[i-1],argv[i]);
-    }
-    for (int i = 0;i < argc;i++){
-        if (entrada[i]=='^' || entrada[i]=='v'){
-            symbol = entrada[i];
-            index = i;
-        }
-        
-    }
-    switch(symbol){
-            case '^':
-                conjuncao(entrada,index);
-                break;
-            case 'v':
-                //disjuncao(entrada);
-                break;
-            default:
+    number[0] = atoi(argv[1]);
+    number[1] = atoi(argv[3]);
+    number[2] = atoi(argv[5]);
+    number[3] = atoi(argv[7]);
 
-                break;
+    for (int i = 0; i < argc; i++){
+        if (strcmp("<",argv[i])== 0 || strcmp(">",argv[i])== 0 || strcmp("^",argv[i])== 0 || strcmp("v",argv[i])== 0){
+            strcpy(&operator[indexSymbol],argv[i]);
+            indexSymbol++;
         }
+    }
+    
+    
 
     return 0;
 }
