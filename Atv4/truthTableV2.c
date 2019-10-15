@@ -68,20 +68,24 @@ char conjuncao (int number[],char operator[]){
 }
 
 int main(int argc, char *argv[]){
-    
-    int indexSymbol = 0, number[4],indexNumber = 0;
-    char operator[4],symbol;
 
+    int number[4];
+    char operator[4],symbol;
+    volatile int indexOperator = 0, indexNumber = 0;
+    
     for (int i = 1; i < argc; i++){
         if (strcmp("<",argv[i])== 0 || strcmp(">",argv[i])== 0){
-            strcpy(&operator[indexSymbol],argv[i]);
-            indexSymbol++;
+            strcpy(&operator[indexOperator],argv[i]);
+            indexOperator++;
+            printf("simbolo %i\n",indexOperator);
         }else if(strcmp("^",argv[i])== 0 || strcmp("U",argv[i])== 0){
             strcpy(&symbol,argv[i]);
+            printf("operador %i\n",i);
 
         }else{
             number[indexNumber] = atoi(argv[i]);
             indexNumber++;
+            printf("numero %i\n",indexNumber);
             
         }
         
